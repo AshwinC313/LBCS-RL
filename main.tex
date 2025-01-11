@@ -363,5 +363,28 @@ The image was interpreted as a sequences of patches and these patches were proce
 \vspace{12pt}
 
 \section{Appendix}
+\subsection{Information about Linear few-shot evaluation}
+Linear few-shot accuracy evaluation is an approach used in tasks involving self-supervised learning, representation learning, or transfer learning to test the quality of learned representations by training a simple linear classifier on a small, labeled dataset while keeping the rest of the model frozen. \\
+Few shot learning setup – in this case, only a limited number of labeled examples such as , few samples per class are provided for training the linear classifier. Some common few-shot scenarios involve 1-shot, 5-shot or 10-shot learning, where 1, 5 or 10 are the samples per class that are available. \\
+For the evaluation of few-shot learning, the accuracy is measured on a separate test set to assess how well the linear classifier performs. High accuracy in few-shot indicates that the pretrained model has learned meaningful and generalizable features.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=1\linewidth]{5_shot_axial_attention_models.png}}
+\caption{Performance of Axial-Attention based models, in terms of top-1 accuracy on ImageNet 5-shot linear, versus their speed in terms of number of FLOPs and inference time.}
+
+\end{figure}
+
+
+\subsection{Inspecting Vision Transformer}
+
+Self attention mechanism in ViTs enable to integrate information across the entire image even in the lowest layers. For that, the point of interest is the computation of average distance in image space across which information is integrated, based on the attention weights. The attention distance is analogous to receptive field size in CNNs. This highly localized attention model is may serve a similar function as early convolutional layers in CNNs. Hence, it was also observed that the model attends to image regions that are semantically relevant for classification.
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=1\linewidth]{attention_image_segmentation.png}}
+\caption{Representative examples of attention from the output token to the input space.}
+
+\end{figure}
+
 
 \end{document}
